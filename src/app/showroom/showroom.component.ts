@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {NFT} from "../../nft";
+import {Collection} from "../../operation";
 import {NetworkService} from "../network.service";
 
 @Component({

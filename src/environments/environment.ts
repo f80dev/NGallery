@@ -6,13 +6,15 @@ export const environment = {
   production: false,
   forum:"",
   mail:"contact@nfluent.io",
-  version: "dev",
+  version: "0.1 dev",
   server:"http://127.0.0.1:4242",
-  appname:"NFT live",
-  splash_visual:"./assets/forge.jpg",
-  claim:"Transformer vos photos en NFT instantanément",
-  appli:"https://nftlive.nfluent.io",
+    appname:"NGallery",
+  splash_visual:"./assets/musee.jpg",
+  claim:"Exposez vos NFTs",
+  appli:"https://gallery.nfluent.io",
   wallet:"http://127.0.0.1:4200",
+    canChange: "true",
+    website:"https://nfluent.io",
 
   merchant:{
     id:"BCR2DN4TYD4Z5XCR",
@@ -30,7 +32,8 @@ export const environment = {
           title:"La banque de NFluent",
           refund: 5
         }
-  }
+  },
+
 };
 
 /*

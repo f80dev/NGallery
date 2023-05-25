@@ -1,4 +1,5 @@
 xcopy /f /y ..\NFTCalvi\src\app\authent\*.* src\app\authent\
+xcopy /f /y ..\NFTCalvi\src\app\about\*.* src\app\about\
 xcopy /f /y ..\NFTCalvi\src\app\splash\*.* src\app\splash\
 xcopy /f /y ..\NFTCalvi\src\app\input\*.* src\app\input\
 xcopy /f /y ..\NFTCalvi\src\app\signature\*.* src\app\signature\
@@ -18,6 +19,7 @@ xcopy /f /y ..\NFTCalvi\src\app\file-drag-ndrop.directive.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\user.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\style-manager.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\nfluent.scss src\
+xcopy /f /y ..\NFTCalvi\src\styles.scss src\
 xcopy /f /y ..\NFTCalvi\src\nfluent-dark.scss src\
 xcopy /f /y ..\NFTCalvi\src\app\hourglass\*.*  src\app\hourglass\
 xcopy /f /y ..\NFTCalvi\src\app\scanner\*.*  src\app\scanner\

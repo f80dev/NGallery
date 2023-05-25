@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NFT} from "../../nft";
 import {apply_params, getParams} from "../../tools";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {NetworkService} from "../network.service";
 
@@ -14,7 +14,7 @@ export class GalleryComponent implements OnInit {
   nfts: NFT[] = [];
   address:string="";
   network: string="";
-  delay_between=3;
+  duration=3;
   size=80;
   collection: string="";
   showNfluentWalletConnect=true;
@@ -23,10 +23,13 @@ export class GalleryComponent implements OnInit {
   canChange: boolean=true;
   private quota_min: number=10
   background: string="";
+  appname="";
+  claim="";
 
   constructor(
       public routes:ActivatedRoute,
-      public api:NetworkService
+      public api:NetworkService,
+      public router:Router,
   ) { }
 
   async ngOnInit() {
@@ -43,11 +46,11 @@ export class GalleryComponent implements OnInit {
       this.on_authen({provider: undefined, strong: false, address:this.address});
     }
 
-    this.delay_between=params.delay_between || 3;
-    this.canChange=(params.chanChange=="true")
+    this.duration=params.duration || 3;
+    this.canChange=((params.chanChange || environment.canChange)=="true")
     this.size=Number(params.size || "80")
     this.quota_min=Number(params.quota_min || "10")
-    this.showNfluentWalletConnect=(params.showNfluentWalletConnect =="true");
+    this.showNfluentWalletConnect=(params.showNfluentWalletConnect=="true");
 
   }
 
@@ -64,5 +67,9 @@ export class GalleryComponent implements OnInit {
 
   update_nft($event: NFT) {
     this.nft_title=$event.name;
+  }
+
+  open_about() {
+    this.router.navigate(["about"]);
   }
 }

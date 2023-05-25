@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {StyleManagerService} from "./style-manager.service";
 import { AppComponent } from './app.component';
@@ -43,10 +43,13 @@ import {GalleryComponent} from "./gallery/gallery.component";
 import {environment} from "../environments/environment";
 import { ShowroomComponent } from './showroom/showroom.component';
 import {DeviceService} from "./device.service";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
   { path: 'gallery', component: GalleryComponent},
+  { path: 'about', component: AboutComponent},
   { path: '', component: GalleryComponent},
   { path: 'admin', component: AdminComponent,pathMatch: 'full' },
 ]
@@ -70,7 +73,8 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     ScannerComponent,
     AskForPaymentComponent,
     SafePipe,
-    ShowroomComponent
+    ShowroomComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +105,12 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     SocketIoModule.forRoot(config),
     RouterModule.forRoot(routes),
     MatStepperModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     DeviceService,StyleManagerService,
