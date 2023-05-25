@@ -5,6 +5,7 @@ xcopy /f /y ..\NFTCalvi\src\app\signature\*.* src\app\signature\
 xcopy /f /y ..\NFTCalvi\src\app\payment\*.* src\app\payment\
 xcopy /f /y ..\NFTCalvi\src\app\gallery\*.* src\app\gallery\
 xcopy /f /y ..\NFTCalvi\src\app\faqs\*.* src\app\faqs\
+xcopy /f /y ..\NFTCalvi\src\app\showroom\*.* src\app\showroom\
 xcopy /f /y ..\NFTCalvi\src\app\prompt\*.* src\app\prompt\
 xcopy /f /y ..\NFTCalvi\src\app\reversebloc\*.* src\app\reversebloc\
 xcopy /f /y ..\NFTCalvi\src\app\ask-for-payment\*.* src\app\ask-for-payment\

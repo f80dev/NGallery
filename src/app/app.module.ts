@@ -17,7 +17,7 @@ import { ScannerComponent } from './scanner/scanner.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {WebcamModule} from "ngx-webcam";
 import {ClipboardModule} from "@angular/cdk/clipboard";
-import {SocialLoginModule} from "@abacritt/angularx-social-login";
+import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "@abacritt/angularx-social-login";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
@@ -25,7 +25,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {GooglePayButtonModule} from "@google-pay/button-angular";
-import {MatDialogModule} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
@@ -41,6 +41,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatStepperModule} from "@angular/material/stepper";
 import {GalleryComponent} from "./gallery/gallery.component";
 import {environment} from "../environments/environment";
+import { ShowroomComponent } from './showroom/showroom.component';
+import {DeviceService} from "./device.service";
 
 
 const routes: Routes = [
@@ -63,10 +65,12 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     PaymentComponent,
     SignatureComponent,
     HourglassComponent,
+      GalleryComponent,
     SplashComponent,
     ScannerComponent,
     AskForPaymentComponent,
-    SafePipe
+    SafePipe,
+    ShowroomComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +102,27 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     RouterModule.forRoot(routes),
     MatStepperModule,
   ],
-  providers: [],
+  providers: [
+    DeviceService,StyleManagerService,
+    {provide: MAT_DIALOG_DATA, useValue: {hasBackdrop: false}},
+    {provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(GOOGLE_CLIENT_ID),
+          }
+        ],
+      } as SocialAuthServiceConfig},
+    {
+      provide: GALLERY_CONFIG,
+      useValue: {
+        dots: true,
+        imageSize: 'cover'
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
