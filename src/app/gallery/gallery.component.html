@@ -4,7 +4,7 @@
         [image]="visual"
         [description]="claim"></app-splash>
 
-<div style="width: 100vw;text-align: center;overflow: hidden;" class="background-form" [style.background-image]="'url('+background+')'">
+<div style="width: 100vw;text-align: center;overflow: hidden;color:gray;" class="background-form" [style.background-image]="'url('+background+')'">
 
         <mat-icon style="color:gray;display: block;position: absolute;right:5px;top:5px;opacity: 0.3;cursor: pointer;"
                   (click)="open_about()">
@@ -14,9 +14,9 @@
         <app-showroom [nfts]="nfts"
                       [size]="size+'vh'"
                       [style.margin]="((100-size)/2)+'vh'"
-                      [delay]="delay_between"
+                      [delay]="duration"
                       class="mat-elevation-z24"
-                      style="display: inline-block;"
+                      style="display: inline-block;background-color: white;padding:6px;"
                       (update)="update_nft($event)"
                       *ngIf="nfts.length>0"></app-showroom>
 
@@ -36,7 +36,8 @@
     <app-authent [showWalletConnect]="true"
                  [directShowQRCode]="true"
                  size="120px"
-                 style="display: block;position: absolute;right:10px;bottom:0;z-index: 10;opacity: 0.6;background-color: white;"
+                 intro_message="Exposez vos NFTs"
+                 style="display: block;position: absolute;right:10px;bottom:0;z-index: 10;opacity: 0.6;"
                  *ngIf="nfts.length>0 && canChange"
                  [network]="network"
                  [showCancel]="false"

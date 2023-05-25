@@ -3,14 +3,15 @@ export const environment = {
     forum:"",
     mail:"contact@nfluent.io",
     version: "0.1 dev",
-    server:"http://127.0.0.1:4242",
+    server:"https://api.nfluent.io:4242",
     appname:"NGallery",
     splash_visual:"./assets/musee.jpg",
     claim:"Exposez vos NFTs",
     appli:"https://gallery.nfluent.io",
-    wallet:"http://127.0.0.1:4200",
+    wallet:"https://wallet.nfluent.io",
     website:"https://nfluent.io",
     canChange: "true",
+    quota:"1",
 
     merchant:{
     id:"BCR2DN4TYD4Z5XCR",

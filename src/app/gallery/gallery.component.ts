@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NFT} from "../../nft";
-import {apply_params, getParams} from "../../tools";
+import {apply_params, getParams, showMessage} from "../../tools";
 import {ActivatedRoute, Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {NetworkService} from "../network.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-gallery',
@@ -21,7 +22,7 @@ export class GalleryComponent implements OnInit {
   visual: string="";
   nft_title:string="";
   canChange: boolean=true;
-  private quota_min: number=10
+  quota: number=10
   background: string="";
   appname="";
   claim="";
@@ -30,6 +31,7 @@ export class GalleryComponent implements OnInit {
       public routes:ActivatedRoute,
       public api:NetworkService,
       public router:Router,
+      public toast:MatSnackBar
   ) { }
 
   async ngOnInit() {
@@ -49,7 +51,7 @@ export class GalleryComponent implements OnInit {
     this.duration=params.duration || 3;
     this.canChange=((params.chanChange || environment.canChange)=="true")
     this.size=Number(params.size || "80")
-    this.quota_min=Number(params.quota_min || "10")
+    this.quota=Number(params.quota || environment.quota || "10")
     this.showNfluentWalletConnect=(params.showNfluentWalletConnect=="true");
 
   }
@@ -58,9 +60,11 @@ export class GalleryComponent implements OnInit {
   async on_authen($event: { strong: boolean; address: string; provider: any }) {
     if($event.address.length>0){
       let r:any=await this.api.get_tokens_from("owner",$event.address,100,false,null,0,this.network)
-      if(r.result && r.result.length>this.quota_min){
+      if(r.result && r.result.length>=this.quota){
         this.address=$event.address;
         this.nfts=r.result;
+      } else {
+        showMessage(this,"Vous n'avez pas assez de NFT pour être exposé");
       }
     }
   }

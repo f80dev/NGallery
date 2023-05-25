@@ -9,6 +9,7 @@ export const environment = {
   version: "0.1 dev",
   server:"http://127.0.0.1:4242",
     appname:"NGallery",
+    quota:"1",
   splash_visual:"./assets/musee.jpg",
   claim:"Exposez vos NFTs",
   appli:"https://gallery.nfluent.io",
