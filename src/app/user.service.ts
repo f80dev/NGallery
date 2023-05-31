@@ -27,6 +27,7 @@ export class UserService implements OnDestroy {
 
   addr_change = new Subject<string>();
   profil_change = new Subject<UserProfil>();
+  params_available=new Subject<any>()
 
   buy_method: "crypto" | "fiat" | "" = "";
 
@@ -57,7 +58,8 @@ export class UserService implements OnDestroy {
   nfts_to_mint: any[] = []
   advance_mode: boolean = false;
   toolbar_visible: boolean = true;
-  appname: string = environment.appname;
+
+  params:any={appname:""}                             //Enregistrement des parametres au lancement de l'appli
   verified_address: Boolean=false;
   wallet_provider: any;                   //Instance d'acces au wallet distant
 
@@ -142,7 +144,7 @@ export class UserService implements OnDestroy {
               encrypt: "",
               explorer: "",
               name: r.name,
-              privatekey: r.private_key,
+              secret_key: r.secret_key,
               address: r.address,
               qrcode: "",
               unity: r.unity

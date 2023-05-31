@@ -8,7 +8,7 @@ import {ImageItem} from "ng-gallery";
 export interface CryptoKey {
   name: string | null
   address: string
-  privatekey:string | null
+  secret_key:string | null
   encrypt:string | undefined
   balance:number | null
   qrcode:string | null
@@ -21,7 +21,7 @@ export function newCryptoKey(address="",name="",privateKey="",encrypted:string |
     explorer:null, qrcode: "", unity: "",
     name:name,
     address:address,
-    privatekey:privateKey,
+    secret_key:privateKey,
     encrypt:encrypted,
     balance:null
   }
@@ -120,6 +120,18 @@ export function setParams(_d:any,prefix="",param_name="p") : string {
     return encodeURIComponent(url);
 }
 
+export function enterFullScreen(element:any) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  }else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();     // Firefox
+  }else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();  // Safari
+  }else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();      // IE/Edge
+  }
+};
+
 
 export function analyse_params(params:string):any {
   let _params=decrypt(decodeURIComponent(params)).split("&");
@@ -163,22 +175,21 @@ export function now(format="number") : any {
 }
 
 
-export function exportToCsv(filename: string, rows: object[]) {
+export function exportToCsv(filename: string, rows: object[],separator=";",cr="\n",text_sep="'") {
   if (!rows || !rows.length) {
     return;
   }
-  const separator = ',';
   const keys = Object.keys(rows[0]);
   const csvContent =
       keys.join(separator) +
-      '\n' +
+      cr +
       rows.map((row:any) => {
         return keys.map(k => {
           let cell = row[k] === null || row[k] === undefined ? '' : row[k];
           cell = cell instanceof Date
               ? cell.toLocaleString()
-              : "'"+cell.toString().replace(/"/g, '""')+"'";
-          if (cell.search(/("|,|\n)/g) >= 0) {
+              : text_sep+cell.toString().replace(/"/g, '""')+text_sep;
+          if (cell.search(/("|"+separator"+|"+cr+")/g) >= 0) {
             cell = `"${cell}"`;
           }
           return cell;
@@ -251,7 +262,7 @@ export function rotate(src: string, angle: number, quality: number=1) : Promise<
 
 
 export function apply_params(vm:any,params:any,env:any){
-  for(let prop of ["claim","title","appname","background","visual"]){
+  for(let prop of ["claim","title","appname","background","visual","new_account_mail","existing_account_mail"]){
     if(vm.hasOwnProperty(prop))vm[prop]=params[prop] || env[prop] || "";
   }
 
@@ -267,8 +278,10 @@ export function apply_params(vm:any,params:any,env:any){
 
   if(params.style && vm.hasOwnProperty("style"))vm.style.setStyle("theme",params.style);
   if(vm.hasOwnProperty("miner"))vm.miner = newCryptoKey("","","",params.miner || env.miner)
-
-
+  if(vm.hasOwnProperty("user")){
+    vm.user.params = params;
+    $$("Conservation des parametres dans le service user")
+  }
 }
 
 
