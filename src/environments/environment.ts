@@ -12,7 +12,7 @@ export const environment = {
     quota:"1",
   visual:"./assets/musee2.jpg",
   claim:"Exposez vos NFTs",
-  appli:"https://gallery.nfluent.io",
+  appli:"http://localhost:4200",
     background: "./assets/redwall2.jpg",
   wallet:"http://127.0.0.1:4200",
     canChange: "true",

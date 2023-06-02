@@ -8,21 +8,26 @@
      class="background-form"
      [style.background-image]="'url('+background+')'">
 
+    <div [innerHTML]="svg | safe"
+         *ngIf="svg.length>0 && !svg.startsWith('http')"
+         style="position: absolute;left:0;top:0;width:100vw;height: 100vh;">
+    </div>
+
         <mat-icon style="color:gray;display: block;position: absolute;right:5px;top:5px;opacity: 0.3;cursor: pointer;"
                   (click)="open_about()">
             help
         </mat-icon>
 
-
         <app-showroom [nfts]="nfts"
                       [exclude_collections]="excludes_collections"
-                      size="200px"
+                      [size]="zone_nft.size"
                       [delay]="duration"
                       style="position:absolute;display: block;"
+                      [style.left]="zone_nft.left" [style.top]="zone_nft.top"
                       (update)="update_nft($event)"
-                      *ngIf="nfts.length>0"></app-showroom>
+                      *ngIf="nfts.length>0 && animation!='svg'"></app-showroom>
 
-    <div class="mat-headline-5" style="margin-top: 20px;">
+    <div class="mat-headline-5" style="margin-top: 20vh;">
         {{nft_title}}
         <app-hourglass [message]="message"></app-hourglass>
     </div>
@@ -31,6 +36,7 @@
                  [directShowQRCode]="true"
                  title="Flasher depuis xPortal pour présenter vos NFTs"
                  [showExtensionWallet]="true"
+                 style="margin-top: 20vh;"
                  *ngIf="nfts.length==0 && showAuthent"
                  [showCancel]="false"
                  [network]="network"
