@@ -36,11 +36,10 @@ export class NetworkService implements OnInit {
     online: boolean=true;
     keys:CryptoKey[]=[];
     config:any={};
-    networks_available:string[]=[];          //network
-    stockage_available:string[]=[];          //stockage visuel et metadata
-    stockage_document_available:string[]=[]; //stockage document attaché
-
-    chain_id="D"                               //Chain_id du réseau elrond
+    networks_available:string[]=[];             //network
+    stockage_available:string[]=[];             //stockage visuel et metadata
+    stockage_document_available:string[]=[];    //stockage document attaché
+    chain_id="D"                                //Chain_id du réseau elrond
 
     constructor(
         private httpClient : HttpClient
@@ -81,6 +80,7 @@ export class NetworkService implements OnInit {
             if(this.network){
                 this.httpClient.get<CryptoKey[]>(this.server_nfluent + "/api/keys/?access_code="+access_code+"&network=" + this.network + "&with_private=true&with_balance="+with_balance+"&operation="+operation_id,).subscribe((r: CryptoKey[]) => {
                     this.keys = r;
+                    this.network_change.next("keys");
                     this.wait();
                     resolve(r);
                 },(err:any)=>{
@@ -161,6 +161,8 @@ export class NetworkService implements OnInit {
     del_key(name: string) {
         return this.httpClient.delete(this.server_nfluent+"/api/keys/"+name+"/?network="+this.network)
     }
+
+
 
 
     archive(tokens: any) {
@@ -507,6 +509,8 @@ export class NetworkService implements OnInit {
         setTimeout(()=>{this.waiting=""},durationInSec*1000);
     }
 
+
+
     isElrond(addr="") {
         if(addr==null)return false;
         if(addr.length==0){
@@ -705,6 +709,8 @@ export class NetworkService implements OnInit {
         let body={from:_from,message:message,subject:subject,name:name};
         return this.httpClient.post(this.server_nfluent+"/api/send_email_to_contact/",body);
     }
+
+
 
     send_transaction_confirmation(email: string, body: any) {
         return this.httpClient.post(this.server_nfluent+"/api/send_transaction_confirmation/"+email+"/",body)
@@ -1097,5 +1103,14 @@ export class NetworkService implements OnInit {
 
     delete_file(filename:string) {
         return this._delete("files/"+filename)
+    }
+
+    set_account_settings(address:string,exclude_collection_from_gallery:string[]){
+        let body={exclude_from_gallery:exclude_collection_from_gallery}
+        return this._post("account_settings/"+address,"",body);
+    }
+
+    get_account_settings(address:string){
+        return this._get("account_settings/"+address);
     }
 }

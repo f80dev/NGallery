@@ -13,23 +13,25 @@
             help
         </mat-icon>
 
+
         <app-showroom [nfts]="nfts"
-                      [size]="size+'vh'"
-                      [style.margin]="((100-size)/2)+'vh'"
+                      [exclude_collections]="excludes_collections"
+                      size="200px"
                       [delay]="duration"
-                      style="display: inline-block;"
+                      style="position:absolute;display: block;"
                       (update)="update_nft($event)"
                       *ngIf="nfts.length>0"></app-showroom>
 
     <div class="mat-headline-5" style="margin-top: 20px;">
         {{nft_title}}
+        <app-hourglass [message]="message"></app-hourglass>
     </div>
 
     <app-authent [showWalletConnect]="true"
                  [directShowQRCode]="true"
-                 intro_message="Flasher depuis xPortal pour présenter vos NFTs"
+                 title="Flasher depuis xPortal pour présenter vos NFTs"
                  [showExtensionWallet]="true"
-                 *ngIf="nfts.length==0"
+                 *ngIf="nfts.length==0 && showAuthent"
                  [showCancel]="false"
                  [network]="network"
                  (authent)="on_authen($event)"></app-authent>
@@ -37,8 +39,9 @@
     <app-authent [showWalletConnect]="true"
                  [directShowQRCode]="true"
                  size="120px"
+                 [showDirectConnect]="false"
                  intro_message="Exposez vos NFTs"
-                 style="display: block;position: absolute;right:10px;bottom:0;z-index: 10;opacity: 0.6;"
+                 style="font-size:small;width:120px;display: block;position: absolute;right:10px;bottom:0;z-index: 10;opacity: 0.6;"
                  *ngIf="nfts.length>0 && canChange"
                  [network]="network"
                  [showCancel]="false"
