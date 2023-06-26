@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="canvas.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#9f9f9f"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.9486718"
+     inkscape:cx="830.10795"
+     inkscape:cy="545.49951"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="true"
+     inkscape:snap-grids="false"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-others="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-nodes="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     borderlayer="false"
+     showborder="true">
+    <sodipodi:guide
+       position="961.52086,546.31865"
+       orientation="1,0"
+       id="guide1787" />
+    <sodipodi:guide
+       position="720.0226,535.88354"
+       orientation="0,-1"
+       id="guide1789" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <rect
+       x="1174.2733"
+       y="445.88655"
+       width="367.3557"
+       height="172.34622"
+       id="rect4856" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter3501"
+       x="-0.0042025486"
+       y="-0.0042025486"
+       width="1.0084051"
+       height="1.0084051">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.97183934"
+         id="feGaussianBlur3503" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB;"
+       id="filter3545"
+       x="-0.033069344"
+       y="-0.12614059"
+       width="1.0661387"
+       height="1.2522812"
+       inkscape:label="Inset"
+       inkscape:menu="Shadows and Glows"
+       inkscape:menu-tooltip="Shadowy outer bevel">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.13063516"
+         id="feGaussianBlur3547"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix516" />
+      <feMorphology
+         id="feMorphology518"
+         result="result1"
+         in="fbSourceGraphicAlpha"
+         operator="dilate"
+         radius="3.6" />
+      <feGaussianBlur
+         id="feGaussianBlur520"
+         stdDeviation="3.6"
+         in="result1"
+         result="result0" />
+      <feDiffuseLighting
+         id="feDiffuseLighting522"
+         surfaceScale="-5"
+         result="result2">
+        <feDistantLight
+           id="feDistantLight524"
+           elevation="45"
+           azimuth="225" />
+      </feDiffuseLighting>
+      <feComposite
+         in2="result0"
+         id="feComposite526"
+         operator="in"
+         result="result91" />
+      <feComposite
+         in2="result91"
+         id="feComposite528"
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter3549"
+       x="-0.0054896585"
+       y="-0.0087406126"
+       width="1.0109793"
+       height="1.0174812">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.17922926"
+         id="feGaussianBlur3551" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1001"
+       x="-0.032943516"
+       y="-0.033124065"
+       width="1.065887"
+       height="1.0662481">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.6519328"
+         id="feGaussianBlur1003" />
+    </filter>
+    <filter
+       inkscape:label="Inset"
+       inkscape:menu="Shadows and Glows"
+       inkscape:menu-tooltip="Shadowy outer bevel"
+       style="color-interpolation-filters:sRGB;"
+       id="filter380"
+       x="-0.0088306205"
+       y="-0.091738625"
+       width="1.0176612"
+       height="1.1834772">
+      <feMorphology
+         result="result1"
+         in="SourceAlpha"
+         operator="dilate"
+         radius="3.6"
+         id="feMorphology368" />
+      <feGaussianBlur
+         stdDeviation="3.6"
+         in="result1"
+         result="result0"
+         id="feGaussianBlur370" />
+      <feDiffuseLighting
+         surfaceScale="-5"
+         id="feDiffuseLighting374">
+        <feDistantLight
+           elevation="45"
+           azimuth="225"
+           id="feDistantLight372" />
+      </feDiffuseLighting>
+      <feComposite
+         in2="result0"
+         operator="in"
+         result="result91"
+         id="feComposite376" />
+      <feComposite
+         in="SourceGraphic"
+         in2="result91"
+         id="feComposite378" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:136.661px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;fill:#808080;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;filter:url(#filter380)"
+       x="-89.183434"
+       y="166.42578"
+       id="text2852"
+       transform="matrix(0,-0.94001429,1.0638136,0,0,0)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:136.661px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;fill:#808080;stroke:#ffffff;stroke-width:0.264583"
+         x="-89.183456"
+         y="166.42578"
+         id="tspan4656">NFLUENT GALLERY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.929338;fill:#f9f9f9;fill-opacity:1;stroke:#f9f9f9;stroke-width:0.432473;filter:url(#filter3549)"
+       x="1053.5936"
+       y="409.97836"
+       id="text4053"
+       transform="matrix(0.61218369,0,0,0.61140297,526.36721,140.03619)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.432473"
+         x="1053.5936"
+         y="409.97836"
+         id="tspan4051">{{description}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.432473"
+         x="1053.5936"
+         y="454.22174"
+         id="tspan594">{{collection}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.432473"
+         x="1053.5936"
+         y="498.46512"
+         id="tspan598" /></text>
+    <rect
+       style="opacity:0.72429;fill:#000000;stroke:#000000;stroke-width:13.7092;filter:url(#filter1001)"
+       id="rect68"
+       width="546.97375"
+       height="543.99237"
+       x="431.16983"
+       y="310.2005"
+       transform="matrix(1.1939094,0,0,1.2129627,-127.99584,-149.33917)" />
+    <image
+       width="555"
+       height="555"
+       style="opacity:0.914827;stroke-width:2.52139647;filter:url(#filter3501);stroke:#9a9a9a;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       preserveAspectRatio="none"
+       xlink:href="%7B%7Bvisual%7D%7D"
+       id="NFT"
+       x="476.46274"
+       y="289"
+       transform="matrix(1.2568946,0,0,1.2567918,-257.54517,-183.0419)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:84.5655px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.95836;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.333648;filter:url(#filter3545)"
+       x="1051.0819"
+       y="349.61423"
+       id="text1793"
+       transform="matrix(0.79210236,0,0,0.79390593,334.20915,66.6322)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:84.5655px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#999999;stroke:none;stroke-width:0.333648"
+         x="1051.0819"
+         y="349.61423"
+         id="tspan1791">{{title}}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.800631;fill:#f9f9f9;fill-opacity:1;stroke:#f9f9f9;stroke-width:0.695656;filter:url(#filter3549)"
+       x="1053.5936"
+       y="409.97836"
+       id="text4376"
+       transform="matrix(0.38012577,0,0,0.38054914,771.77038,303.26992)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.695656"
+         x="1053.5936"
+         y="409.97836"
+         id="tspan4370">{{prop1}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.695656"
+         x="1053.5936"
+         y="454.22174"
+         id="tspan4372">{{prop2}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.695656"
+         x="1053.5936"
+         y="498.46512"
+         id="tspan4910">{{prop3}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.695656"
+         x="1053.5936"
+         y="542.7085"
+         id="tspan4912">{{prop4}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.695656"
+         x="1053.5936"
+         y="586.95184"
+         id="tspan4914">{{prop5}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.3947px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#f9f9f9;stroke:#f9f9f9;stroke-width:0.695656"
+         x="1053.5936"
+         y="631.19525"
+         id="tspan4374" /></text>
+  </g>
+</svg>
