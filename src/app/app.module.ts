@@ -30,7 +30,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 import { SafePipe } from './safe.pipe';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {AskForPaymentComponent} from "./ask-for-payment/ask-for-payment.component";
@@ -45,11 +45,19 @@ import { ShowroomComponent } from './showroom/showroom.component';
 import {DeviceService} from "./device.service";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AboutComponent } from './about/about.component';
+import { TranslatePipe } from './translate.pipe';
+import { GenlinkComponent } from './genlink/genlink.component';
+import {MatListModule} from "@angular/material/list";
+import {UploadFileComponent} from "./upload-file/upload-file.component";
+import {FaqLinkComponent} from "./faq-link/faq-link.component";
+import { ShareComponent } from './share/share.component';
 
 
 const routes: Routes = [
   { path: 'gallery', component: GalleryComponent},
   { path: 'about', component: AboutComponent},
+  { path: 'share', component: ShareComponent},
+  { path: 'faqs', component: FaqsComponent},
   { path: '', component: GalleryComponent},
   { path: 'admin', component: AdminComponent,pathMatch: 'full' },
 ]
@@ -68,18 +76,24 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     PaymentComponent,
     SignatureComponent,
     HourglassComponent,
-      GalleryComponent,
+    GalleryComponent,
     SplashComponent,
     ScannerComponent,
     AskForPaymentComponent,
     SafePipe,
     ShowroomComponent,
-    AboutComponent
+    AboutComponent,
+    TranslatePipe,
+    GenlinkComponent,
+    UploadFileComponent,
+    FaqLinkComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
     MatProgressSpinnerModule,
     WebcamModule,
+      ReactiveFormsModule,
     ClipboardModule,
     SocialLoginModule,
     MatCardModule,
@@ -111,9 +125,10 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    MatListModule,
   ],
   providers: [
-    DeviceService,StyleManagerService,
+    DeviceService,StyleManagerService,TranslatePipe,
     {provide: MAT_DIALOG_DATA, useValue: {hasBackdrop: false}},
     {provide: 'SocialAuthServiceConfig',
       useValue: {

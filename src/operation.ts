@@ -15,6 +15,7 @@ export interface Collection {
   type: string | undefined
   roles: any[] | undefined
   link: string | ""
+  supply: number
   options: string[] | []
 }
 
@@ -25,6 +26,9 @@ export interface Connexion {
   email: boolean | false
   google: boolean | false
   webcam: boolean | false
+  extension_wallet:boolean | false
+  web_wallet:boolean | false
+  direct_connect: boolean | false
   nfluent_wallet_connect: boolean | false            //QRCode proposé par nfluent en substitution de Wallet Connect à utiliser depuis le wallet nfluent
 }
 
@@ -342,6 +346,7 @@ export function newCollection(name:string,owner:CryptoKey,id="",type_collection=
     gallery:true,
     link: "",
     name: name,
+    supply:1,
     options: [],
     owner: owner,
     price: 0,

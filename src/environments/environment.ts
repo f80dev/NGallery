@@ -13,10 +13,12 @@ export const environment = {
   visual:"./assets/musee2.jpg",
   claim:"Exposez vos NFTs",
   appli:"http://localhost:4200",
-    background: "./assets/redwall2.jpg",
+    background: "https://gallery.nfluent.io/assets/wood.jpg",
   wallet:"http://127.0.0.1:4200",
     canChange: "true",
     website:"https://nfluent.io",
+    faqs:"{{domain_appli}}/assets/faqs.yaml",
+    admin_password:"",
 
   merchant:{
     id:"BCR2DN4TYD4Z5XCR",
@@ -35,6 +37,32 @@ export const environment = {
           refund: 5
         }
   },
+    dictionnary:{
+      "en":{
+          "Wallet Connect : Flasher depuis xPortal pour afficher vos NFTs":"Wallet Connect : Flash from xPortal to expose your NFTs",
+          "Cliquer n'importe ou pour passer en plein écran":"Click anywhere to switch fullscreen",
+          "sur cet écran":"on this screen",
+          "Exposez vos NFTs":"Show your NFTs",
+          "Chargement de la collection":"Collection loading",
+          "Vous n'avez pas assez de NFT pour être exposé":"You don't have enough NFT to be exposed"
+      },
+        "es":{
+            "Wallet Connect : Flasher depuis xPortal pour afficher vos NFTs":"Wallet Connect: Flash desde xPortal para mostrar sus NFT",
+            "Cliquer n'importe ou pour passer en plein écran":"Faceți clic oriunde pentru a accesa ecranul complet",
+            "sur cet écran":"en esta pantalla",
+            "Exposez vos NFTs":"Exponga sus NFT",
+            "Chargement de la collection":"Cargando la colección",
+            "Vous n'avez pas assez de NFT pour être exposé":"No tienes suficiente NFT para estar expuesto"
+        },
+        "ro":{
+            "Wallet Connect : Flasher depuis xPortal pour afficher vos NFTs":"Wallet Connect: Flash de la xPortal pentru a vă afișa NFT-urile",
+            "Cliquer n'importe ou pour passer en plein écran":"",
+            "sur cet écran":"pe acest ecran",
+            "Exposez vos NFTs":"Expuneți-vă NFT-urile",
+            "Chargement de la collection":"Chargement de la collection",
+            "Vous n'avez pas assez de NFT pour être exposé":"Nu ai suficient NFT pentru a fi expus"
+        },
+    }
 
 };
 

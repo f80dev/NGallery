@@ -7,6 +7,8 @@ xcopy /f /y ..\NFTCalvi\src\app\payment\*.* src\app\payment\
 xcopy /f /y ..\NFTCalvi\src\app\gallery\*.* src\app\gallery\
 xcopy /f /y ..\NFTCalvi\src\app\faqs\*.* src\app\faqs\
 xcopy /f /y ..\NFTCalvi\src\app\showroom\*.* src\app\showroom\
+xcopy /f /y ..\NFTCalvi\src\app\genlink\*.* src\app\genlink\
+xcopy /f /y ..\NFTCalvi\src\app\faq-link\*.* src\app\faq-link\
 xcopy /f /y ..\NFTCalvi\src\app\prompt\*.* src\app\prompt\
 xcopy /f /y ..\NFTCalvi\src\app\reversebloc\*.* src\app\reversebloc\
 xcopy /f /y ..\NFTCalvi\src\app\ask-for-payment\*.* src\app\ask-for-payment\
@@ -14,7 +16,9 @@ xcopy /f /y ..\NFTCalvi\src\app\alias.pipe.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\splash\*.* src\app\splash\
 xcopy /f /y ..\NFTCalvi\src\app\network.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\safe.pipe.ts src\app\
+xcopy /f /y ..\NFTCalvi\src\app\translate.pipe.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\device.service.ts src\app\
+xcopy /f /y ..\NFTCalvi\src\app\evm-wallet-service.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\file-drag-ndrop.directive.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\user.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\style-manager.service.ts src\app\

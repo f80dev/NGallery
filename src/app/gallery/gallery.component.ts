@@ -1,12 +1,15 @@
 import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {NFT} from "../../nft";
-import {$$, apply_params, enterFullScreen, getParams, showMessage} from "../../tools";
+import {$$, apply_params, enterFullScreen, getParams, setParams, showMessage} from "../../tools";
 import {ActivatedRoute, Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {NetworkService} from "../network.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {DOCUMENT} from "@angular/common";
 import {wait_message} from "../hourglass/hourglass.component";
+import {Connexion} from "../../operation";
+import {NgNavigatorShareService} from "ng-navigator-share";
+import {TranslatePipe} from "../translate.pipe";
 
 @Component({
   selector: 'app-gallery',
@@ -19,7 +22,19 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   network: string="";
   animation="svg";
   duration=3;
-  collection: string="";
+  authent_mode:Connexion={
+    address: false,
+    direct_connect: false,
+    email: false,
+    extension_wallet: false,
+    google: false,
+    nfluent_wallet_connect: false,
+    on_device: false,
+    wallet_connect: true,
+    web_wallet: false,
+    webcam: false
+  }
+  collection_id: string="";
   showNfluentWalletConnect=true;
   visual: string="";
   nft_title:string="";
@@ -31,78 +46,88 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   excludes_collections: string[]=[];
   showAuthent: boolean=true;
   message="";
-  private canvas: string="./assets/canvas.svg"
-  svg="";         //Code remplacé à chaque image
+  svg=environment.appli+"/assets/canvas.svg";         //Code remplacé à chaque image
   zone_nft: any={left:"10%",top:"10%",size:"50vh"}
   svg_code="";   //Code originel
+  params: any;
+  direct_showqrcode: boolean=true;
 
   constructor(
       public routes:ActivatedRoute,
       public api:NetworkService,
       public router:Router,
       public toast:MatSnackBar,
+      public translate:TranslatePipe,
+      public ngShare:NgNavigatorShareService,
       @Inject(DOCUMENT) public document: any
   ) { }
 
   async ngOnInit() {
-    let params:any=await getParams(this.routes)
-    apply_params(this,params,environment);
+    this.params=await getParams(this.routes)
+    apply_params(this,this.params,environment);
 
-    this.animation=params.animation || "svg";
-    this.collection=params.collection || ""
-    this.svg=params.svg || environment.appli+"/assets/musee.svg"
+    this.animation=this.params.animation || "svg";
+    this.collection_id=this.params.collection || ""
+    if(typeof(this.collection_id)=="object")this.collection_id=this.collection_id["id"];
+    this.svg=this.params.svg || environment.appli+"/assets/canvas.svg"
+
     if(!this.svg.startsWith("http"))this.svg=environment.appli+"/assets/"+this.svg
-    this.api.canvas(this.svg).subscribe((r:any)=>{
+    $$("Récupération du fichier svg "+this.svg)
+    this.api.canvas(this.svg,"100vw","100vh").subscribe((r:any)=>{
       if(r.zone)this.zone_nft=r.zone
       this.svg_code=r.svg;
     })
 
-    //Positionnement
-    this.canvas=params.canvas || "./assets/canvas.svg"
-
     this.canChange=(environment.canChange=="true")
-    if(params.hasOwnProperty("canChange"))this.canChange=params.canChange;
+    if(this.params.hasOwnProperty("canChange"))this.canChange=this.params.canChange;
 
-
-    if(this.collection.length>0){
-      wait_message(this,"Chargement de la collection "+this.collection);
-      this.api.get_nfts_from_collection(this.collection,this.network).subscribe((r)=>{
+    if(this.collection_id.length>0){
+      this.showAuthent=false;
+      wait_message(this,this.translate.transform("Chargement de la collection")+" "+this.collection_id);
+      this.api.get_nfts_from_collection(this.collection_id,this.network).subscribe((r)=>{
         wait_message(this)
         this.nfts=r.nfts;
         this.anim();
       })
     }else{
-      this.address=params.address || params.miner || "";
+      this.address=this.params.address || this.params.miner || "";
       this.on_authen({provider: undefined, strong: false, address:this.address});
     }
 
-    this.duration=params.duration || 3;
+    this.duration=this.params.duration || 3;
 
+    this.quota=Number(this.params.quota || environment.quota || "10")
+    this.showNfluentWalletConnect=(this.params.showNfluentWalletConnect=="true");
 
-    this.quota=Number(params.quota || environment.quota || "10")
-    this.showNfluentWalletConnect=(params.showNfluentWalletConnect=="true");
-
-    showMessage(this,"Cliquer n'importe ou pour passer en plein écran",6000);
+    showMessage(this,this.translate.transform("Cliquer n'importe ou pour passer en plein écran"),6000);
 
   }
 
   histo:number[]=[];
   anim(){
-    let i=Math.trunc(Math.random()*this.nfts.length);
-    if(this.histo.indexOf(i)==-1){
+    let i=-1;
+    let nft=null;
+    for(let ntry=0;ntry<100;ntry++){
+      let temp=Math.trunc(Math.random()*this.nfts.length);
+      if(this.histo.indexOf(temp)==-1){
+        i=temp;
+        break;
+      }
+    }
+    if(i>-1) {
       this.update_nft(this.nfts[i]);
       this.histo.push(i);
-      if(this.histo.length==this.nfts.length)this.histo=[];
-      setTimeout(()=>{this.anim()},this.duration*1000);
     }
+    if(this.histo.length==this.nfts.length)this.histo=[];
+    setTimeout(()=>{this.anim()},this.duration*1000);
   }
 
   async on_authen($event: { strong: boolean; address: string; provider: any }) {
     if($event.address.length>0){
       this.showAuthent=false;
-      showMessage(this,"Récupération de vos NFTs en cours");
-      wait_message(this,"Chargement des NFTs")
-      let r:any=await this.api.get_tokens_from("owner",$event.address,100,false,null,0,this.network)
+      showMessage(this,this.translate.transform("Récupération de vos NFTs en cours"));
+      wait_message(this,this.translate.transform("Chargement des NFTs"))
+      let r:any=await this.api.get_tokens_from("owner",$event.address,100,true,null,0,this.network)
       wait_message(this)
       if(r.result && r.result.length>=this.quota){
         this.address=$event.address;
@@ -110,27 +135,34 @@ export class GalleryComponent implements OnInit,AfterViewInit {
         this.anim();
         this.api.get_account_settings(this.address).subscribe((r)=>{this.excludes_collections=r.exclude_from_gallery || [];})
       } else {
-        showMessage(this,"Vous n'avez pas assez de NFT pour être exposé");
+        showMessage(this,this.translate.transform("Vous n'avez pas assez de NFT pour être exposé"));
       }
+    } else {
+      showMessage(this,"Votre adresse n'est pas disponible")
     }
   }
 
   update_nft($event: NFT) {
     if(!$event)return false;
-    let props="<table>"
-    for(let a of $event.attributes){
-      if(a.trait_type && a.value)props=props+"<tr><td>"+a.trait_type+"</td><td>"+a.value+"</td><tr>";
-    }
-    props=props+"</table>"
     this.svg=this.svg_code
+    let i=1;
+    for(let a of $event.attributes){
+      if(a.trait_type && a.value){
+        let label=a.trait_type+": "+a.value
+        this.svg=this.svg.replace("{{prop"+i+"}}",label.substring(0,100))
+        i=i+1;
+      }
+    }
+
     this.svg=this.svg.replace("{{visual}}",$event.visual).replace("{{NFT}}",$event.visual).replace("%7B%7Bvisual%7D%7D",$event.visual);
-    this.svg=this.svg.replace("{{properties}}",props).replace("{{attributes}}",props)
     this.svg=this.svg.replace("{{title}}",$event.name).replace("{{name}}",$event.name)
     this.svg=this.svg.replace("{{description}}",$event.description)
     if($event.collection && $event.collection.name){
-      this.svg=this.svg.replace("{{collection}}",$event.collection?.name)
+      this.svg=this.svg.replace("{{collection}}",$event.collection!.name)
     }
-    for(let k of ["collection","title","description","properties","attributes","name","NFT","%7B%7Bvisual%7D%7D"]){
+    let to_clear=["collection","title","description","properties","attributes","name","NFT","%7B%7Bvisual%7D%7D"]
+    for(let i=0;i<15;i++)to_clear.push("prop"+i);
+    for(let k of to_clear){
       this.svg=this.svg.replace("{{"+k+"}}","")
     }
     $$("Affichage de "+$event.visual)
@@ -138,7 +170,15 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   }
 
   open_about() {
-    this.router.navigate(["about"]);
+    this.router.navigate(["about"],{queryParams:{p:setParams({
+        appname:this.params.appname || environment.appname,
+        version:this.params.version,
+        website:this.params.website || environment.website,
+        contact:this.params.contact,
+        cgu:this.params.cgu,
+          logo:this.params.logo || "https://nfluent.io/assets/logo.png",
+          company:this.params.company,
+    },"","")}});
   }
 
   open_full_screen(){
@@ -146,6 +186,43 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+
+  }
+
+  switch_authent_mode() {
+    if(this.authent_mode.nfluent_wallet_connect){
+      this.direct_showqrcode=true;
+      this.authent_mode={
+        address: false,
+        direct_connect: true,
+        email: false,
+        extension_wallet: true,
+        google: false,
+        nfluent_wallet_connect: false,
+        on_device: false,
+        wallet_connect: true,
+        web_wallet: true,
+        webcam: false
+      }
+    } else {
+      this.direct_showqrcode=false;
+      this.authent_mode={
+        address: true,
+        direct_connect: false,
+        email: false,
+        extension_wallet: true,
+        google: false,
+        nfluent_wallet_connect: true,
+        on_device: false,
+        wallet_connect: false,
+        web_wallet: true,
+        webcam: false
+      }
+    }
+  }
+
+  async open_share() {
+    this.router.navigate(["share"])
 
   }
 }

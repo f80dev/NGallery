@@ -12,8 +12,9 @@ export const environment = {
     website:"https://nfluent.io",
     canChange: "true",
     quota:"1",
-    background:"https://gallery.nfluent.io/assets/redwall2.jpg",
-
+    faqs:"{{domain_appli}}/assets/faqs.yaml",
+    admin_password:"",
+    background: "https://gallery.nfluent.io/assets/wood.jpg",
     merchant:{
         id:"BCR2DN4TYD4Z5XCR",
         name:"NFluenT",
@@ -31,5 +32,32 @@ export const environment = {
                 title:"La banque de NFluent",
                 refund: 5
             }
+    },
+
+    dictionnary:{
+        "en":{
+            "Flasher depuis xPortal pour afficher vos NFTs":"Wallet Connect : Flash from xPortal to expose your NFTs",
+            "Cliquer n'importe ou pour passer en plein écran":"Click anywhere to switch fullscreen",
+            "sur cet écran":"on this screen",
+            "Exposez vos NFTs":"Show your NFTs",
+            "Chargement de la collection":"Collection loading",
+            "Vous n'avez pas assez de NFT pour être exposé":"You don't have enough NFT to be exposed"
+        },
+        "es":{
+            "Flasher depuis xPortal pour afficher vos NFTs":"Wallet Connect: Flash desde xPortal para mostrar sus NFT",
+            "Cliquer n'importe ou pour passer en plein écran":"Faceți clic oriunde pentru a accesa ecranul complet",
+            "sur cet écran":"en esta pantalla",
+            "Exposez vos NFTs":"Exponga sus NFT",
+            "Chargement de la collection":"Cargando la colección",
+            "Vous n'avez pas assez de NFT pour être exposé":"No tienes suficiente NFT para estar expuesto"
+        },
+        "ro":{
+            "Flasher depuis xPortal pour afficher vos NFTs":"Wallet Connect: Flash de la xPortal pentru a vă afișa NFT-urile",
+            "Cliquer n'importe ou pour passer en plein écran":"",
+            "sur cet écran":"pe acest ecran",
+            "Exposez vos NFTs":"Expuneți-vă NFT-urile",
+            "Chargement de la collection":"Chargement de la collection",
+            "Vous n'avez pas assez de NFT pour être exposé":"Nu ai suficient NFT pentru a fi expus"
+        },
     }
 };

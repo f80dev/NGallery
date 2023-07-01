@@ -8,11 +8,17 @@
   src: url("assets/webFonts/HelveticaInseratLT.ttf") format("ttf");
 }
 
-html {font-size: 1vw;}
+html {
+  font-size: 1vw;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {width: 0;}
+
 @media(max-width: 1500px) { html {font-size: 1.3vw;} }
 @media(max-width: 1000px) { html {font-size: 1.8vw;} }
 @media(max-width: 800px) { html {font-size: 2.2vw;} }
-@media(max-width: 500px) { html {font-size: 3.3vw;} }
+@media(max-width: 500px) { html {font-size: 4vw;} }
 
 //voir https://material.angular.io/guide/typography#typography-config
 /* Argument de mat.define-typography-level
@@ -120,9 +126,6 @@ $nfluent-dark-theme: mat.define-dark-theme((
 ));
 
 
-
-
-
 // Emit styles for MatButton based on `$my-theme`. Because the configuration
 // passed to `define-light-theme` omits typography, `button-theme` will not
 // emit any typography styles.
@@ -170,6 +173,7 @@ body,html {
 .titleform {
   @extend .mat-headline-5, .color-primary;
   margin: 8px;
+  margin-bottom: 15px;
 }
 
 .subtitleform {
@@ -179,9 +183,23 @@ body,html {
 }
 
 .background-component {
-  background-color: mat.get-color-from-palette(mat.$grey-palette, 900);
+  background-color: mat.get-color-from-palette(mat.$grey-palette, 300) !important;
 }
 
 mat-vertical-stepper {
   background: none !important;
 }
+
+
+mat-expansion-panel-header {
+  @extend .mat-body-2, .color-primary;
+  font-weight: bold !important;
+}
+
+
+mat-card-title {
+  @extend .mat-body-1, .color-primary;
+  font-size: medium !important;
+  padding: 10px;
+}
+

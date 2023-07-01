@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {NetworkService} from "../network.service";
+import {wait_message} from "../hourglass/hourglass.component";
+import {NgNavigatorShareService} from "ng-navigator-share";
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  message = "";
+
+  constructor(
+      public api:NetworkService
+  ) { }
 
   ngOnInit(): void {
   }
+
 
 }

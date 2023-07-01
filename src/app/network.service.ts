@@ -729,8 +729,8 @@ export class NetworkService implements OnInit {
         return this._get("/palettes/");
     }
 
-    getfaqs() {
-        return this._get("/getyaml/faqs/","dir=./flaskr/static");
+    getfaqs(file="") {
+        return this._get("/getyaml/","url="+file);
     }
 
     del_config(id_config:string,user:string="") {
@@ -883,12 +883,12 @@ export class NetworkService implements OnInit {
     refund(bank:Bank,dest:string,comment="") {
         //@bp.route('/refund/<address>/<amount>/<token>/',methods=["POST"])
         let body={bank:bank.miner,data:comment,network:bank.network,limit:bank.limit,histo:bank.histo}
-        return this._post("refund/"+dest+"/"+bank.refund+"/"+bank.token+"/","",body,120000);
+        return this._post("refund/"+dest+"/"+bank.refund+"/"+bank.token+"/","",body,200000);
     }
 
-    get_collections(owners_or_collections: string,network="",detail=false) {
+    get_collections(owners_or_collections: string,network="",detail=false,limit=300) {
         if(network.length==0)network=this.network;
-        let url=this.server_nfluent+"/api/collections/"+owners_or_collections+"/?network="+network+"&detail="+detail+"&operations=canCreate";
+        let url=this.server_nfluent+"/api/collections/"+owners_or_collections+"/?network="+network+"&limit="+limit+"&detail="+detail+"&operations=canCreate";
         return this.httpClient.get<Collection[]>(url);
     }
 
@@ -1114,7 +1114,15 @@ export class NetworkService implements OnInit {
         return this._get("account_settings/"+address);
     }
 
-    canvas(svg: string) {
-        return this._get("canvas/","svg="+encodeURIComponent(svg));
+    canvas(svg: string,width="100%",height="100%") {
+        return this._get("canvas/","svg="+encodeURIComponent(svg)+"&width="+width+"&height="+height);
+    }
+
+    create_short_link(body:any) {
+        return this._post("short_link/","",body)
+    }
+
+    find_tokens(network: string, filter: string,with_detail=false,limit=200) {
+        return this._get("tokens/","network="+network+"&filter="+filter+"&with_detail="+with_detail+"&limit="+limit)
     }
 }

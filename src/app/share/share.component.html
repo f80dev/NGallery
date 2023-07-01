@@ -1,0 +1,32 @@
+<div class="mainform">
+	<div class="mat-elevation-z4" style="max-width: 600px;padding:20px;display: inline-block;">
+		<div class="titleform" style="margin: 30px;">
+			Créer votre gallerie et partagez là
+			<app-faq-link faq="property"></app-faq-link>
+		</div>
+
+		<app-hourglass [message]="message"></app-hourglass>
+		<br>
+		<div>
+			<app-upload-file extensions=".svg" width="200px" height="200px"
+			                 [maxsize]="2000000"
+			                 (uploaded)="upload_svg($event)">
+				Charger un décors
+			</app-upload-file>
+			<app-faq-link faq="svg" title="En savoir plus sur le fichier de décors"></app-faq-link>
+
+		</div>
+
+		<br>
+
+		<app-genlink domain="https://gallery.nfluent.io"
+		             [properties]="properties"></app-genlink>
+
+		<br>
+		<button mat-raised-button (click)="go_back()">Retour</button>
+
+
+
+
+	</div>
+</div>
