@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {filter} from "rxjs";
 //version 1.0 3/3/23
 
 @Component({
@@ -20,6 +21,7 @@ export class InputComponent implements OnChanges,OnInit {
   @Input() maxwidth:string="100%";
   @Input() color_value="darkgray";
   @Input() size_image="40px";
+  @Input() filter="";
 
 
   @Input() options:any=[];
@@ -36,7 +38,7 @@ export class InputComponent implements OnChanges,OnInit {
   @Output() validate=new EventEmitter();
   @Output() cancel=new EventEmitter();
 
-  @Input() value_type:"text" | "number" | "memo" | "list" | "listimages" | "boolean" | "images" | "slide" | "slider" ="text";
+  @Input() value_type:"text" | "number" | "memo" | "list" | "listimages" | "boolean" | "images" | "slide" | "slider" = "text";
   @Input() help:string="";
   @Input() help_input: string="";
   @Input() help_button: string="Enregistrez";
@@ -51,6 +53,7 @@ export class InputComponent implements OnChanges,OnInit {
   @Input() showClear: boolean=true
   @Input() fontname="mat-body-2"
   @Input() height="200px"
+  @Input() unity: string="";
 
 
   constructor() { }
@@ -64,6 +67,7 @@ export class InputComponent implements OnChanges,OnInit {
 
   on_validate() {
     this.validate.emit(this.value);
+    this.valueChange.emit(this.value);
   }
 
   on_key($event: KeyboardEvent) {
@@ -75,7 +79,8 @@ export class InputComponent implements OnChanges,OnInit {
 
   sel_change($event: any) {
     if($event.hasOwnProperty("options")){
-      this.value=$event["options"][0]
+      let values= $event.options
+      this.value=values[0].value
     }else {
       if(this.value_type=="slide" || this.value_type=="slider"){
         this.value=$event.value
@@ -96,16 +101,29 @@ export class InputComponent implements OnChanges,OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.value_type=="list" || this.value_type=="listimages" || this.value_type=="images") {
-      if (changes.hasOwnProperty("value")) this.valueCtrl.setValue(changes["value"].currentValue)
+      if(changes["value"]){
+        if(this.value_field==""){
+          let v=changes["value"].currentValue
+          if(typeof(v)=="string")v={label:v,value:v}
+          this.valueCtrl.setValue(v)
+        }else{
+          for(let o of this.options){
+            if(o[this.value_field]==changes["value"].currentValue){
+              this.valueCtrl.setValue(o)
+              break
+            }
+          }
+        }
+      }
 
       if (typeof (changes["options"]) == "string") { // @ts-ignore
         changes["options"] = changes["options"].split(",")
       }
       if (changes["options"] && changes["options"].previousValue != changes["options"].currentValue) {
         this.options = [];
-        for (let option of JSON.parse(JSON.stringify(changes["options"].currentValue))) {
-          if (typeof (option) == "string") option = {label: option, value: option};
-          if (typeof (option) == "object") {
+        for (let option of changes["options"].currentValue) {
+          if (typeof(option) == "string") option = {label: option, value: option};
+          if (typeof(option) == "object") {
             option.label = option["label"] || option["name"] || option["caption"] || option["title"];
             // if (this.value_field.length > 0){
             //   option.value=option[this.value_field]
@@ -115,8 +133,6 @@ export class InputComponent implements OnChanges,OnInit {
           }
           this.options.push(option);
         }
-        if (this.options.length == 1)
-          this.sel_change({value: this.options[0]})
       }
     }
   }
@@ -140,17 +156,16 @@ export class InputComponent implements OnChanges,OnInit {
   }
 
   compareFn(obj1:any,obj2:any){
-    let c_obj1=Object.create(obj1)
-    let c_obj2=Object.create(obj2)
-    c_obj1["label"]=null
-    c_obj2["label"]=null
-    let rc= c_obj1 && c_obj2 ? JSON.stringify(c_obj1)==JSON.stringify(c_obj2) : c_obj1==c_obj2
-    return rc
+    let c_obj1=typeof(obj1)=="object" ? JSON.stringify(obj1) : obj1
+    let c_obj2=typeof(obj2)=="object" ? JSON.stringify(obj2) : obj2
+    //TODO: faire un tri des propriété par ordre alphabétique pour s'assurrer que {a:1,b:2} est égale à {b:2,a:1}
+    return c_obj1===c_obj2
   }
 
   explore(value: any) {
     open(value,"Explorer")
   }
+
 }
 
 

@@ -1,8 +1,9 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {$$, open_image_banks, setParams} from "../../tools";
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {$$, setParams} from "../../tools";
 import {DeviceService} from "../device.service";
 import {NgNavigatorShareService} from "ng-navigator-share";
 import {MatDialog} from "@angular/material/dialog";
+import {open_image_banks} from "../../nfluent";
 
 export function genlink_to_obj(links:any[]){
   let obj:any={}
@@ -24,6 +25,7 @@ export class GenlinkComponent implements OnChanges {
   @Input() title: string="";
   url: string="";
   @Input() show_command_panel: boolean = true;
+  @Output('update') onupdate: EventEmitter<any>=new EventEmitter();
 
   constructor(
       public device:DeviceService,
@@ -65,6 +67,7 @@ export class GenlinkComponent implements OnChanges {
     $$("Enregistrement des parametres ",obj)
     let prefix=this.domain.endsWith("/") ? "?" : "/?"
     this.url=this.domain+prefix+setParams(obj)
+    this.onupdate.emit(obj)
   }
 
   update_value(p:any,$event: any) {

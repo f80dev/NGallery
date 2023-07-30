@@ -16,6 +16,7 @@ xcopy /f /y ..\NFTCalvi\src\app\alias.pipe.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\splash\*.* src\app\splash\
 xcopy /f /y ..\NFTCalvi\src\app\network.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\safe.pipe.ts src\app\
+xcopy /f /y ..\NFTCalvi\src\app\filter.pipe.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\translate.pipe.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\device.service.ts src\app\
 xcopy /f /y ..\NFTCalvi\src\app\evm-wallet-service.service.ts src\app\
@@ -31,6 +32,7 @@ xcopy /f /y ..\NFTCalvi\src\app\upload-file\*.*  src\app\upload-file\
 xcopy /f /y ..\NFTCalvi\src\create.ts src\
 xcopy /f /y ..\NFTCalvi\src\operation.ts src\
 xcopy /f /y ..\NFTCalvi\src\tools.ts src\
+xcopy /f /y ..\NFTCalvi\src\nfluent.ts src\
 xcopy /f /y ..\NFTCalvi\src\nft.ts src\
 xcopy /f /y ..\NFTCalvi\src\definitions.ts src\
 

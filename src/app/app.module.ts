@@ -51,6 +51,7 @@ import {MatListModule} from "@angular/material/list";
 import {UploadFileComponent} from "./upload-file/upload-file.component";
 import {FaqLinkComponent} from "./faq-link/faq-link.component";
 import { ShareComponent } from './share/share.component';
+import {FilterPipe} from "./filter.pipe";
 
 
 const routes: Routes = [
@@ -77,6 +78,7 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     SignatureComponent,
     HourglassComponent,
     GalleryComponent,
+    FilterPipe,
     SplashComponent,
     ScannerComponent,
     AskForPaymentComponent,
@@ -128,7 +130,7 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
     MatListModule,
   ],
   providers: [
-    DeviceService,StyleManagerService,TranslatePipe,
+    DeviceService,StyleManagerService,TranslatePipe,FilterPipe,
     {provide: MAT_DIALOG_DATA, useValue: {hasBackdrop: false}},
     {provide: 'SocialAuthServiceConfig',
       useValue: {

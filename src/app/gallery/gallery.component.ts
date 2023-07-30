@@ -23,6 +23,7 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   animation="svg";
   duration=3;
   authent_mode:Connexion={
+    keystore: false,
     address: false,
     direct_connect: false,
     email: false,
@@ -193,6 +194,7 @@ export class GalleryComponent implements OnInit,AfterViewInit {
     if(this.authent_mode.nfluent_wallet_connect){
       this.direct_showqrcode=true;
       this.authent_mode={
+        keystore: false,
         address: false,
         direct_connect: true,
         email: false,
@@ -208,6 +210,7 @@ export class GalleryComponent implements OnInit,AfterViewInit {
       this.direct_showqrcode=false;
       this.authent_mode={
         address: true,
+        keystore: false,
         direct_connect: false,
         email: false,
         extension_wallet: true,
