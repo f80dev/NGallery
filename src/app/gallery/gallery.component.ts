@@ -36,7 +36,6 @@ export class GalleryComponent implements OnInit,AfterViewInit {
     webcam: false
   }
   collection_id: string="";
-  showNfluentWalletConnect=true;
   visual: string="";
   nft_title:string="";
   canChange: boolean=true;
@@ -98,7 +97,7 @@ export class GalleryComponent implements OnInit,AfterViewInit {
     this.duration=this.params.duration || 3;
 
     this.quota=Number(this.params.quota || environment.quota || "10")
-    this.showNfluentWalletConnect=(this.params.showNfluentWalletConnect=="true");
+    this.authent_mode.nfluent_wallet_connect=(this.params.showNfluentWalletConnect=="true");
 
     showMessage(this,this.translate.transform("Cliquer n'importe ou pour passer en plein écran"),6000);
 

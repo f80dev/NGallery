@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   forum:"",
+  company:"",
   mail:"contact@nfluent.io",
   version: "0.1 dev",
   server:"http://127.0.0.1:4242",

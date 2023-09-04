@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormControl} from "@angular/forms";
-import {filter} from "rxjs";
 //version 1.0 3/3/23
 
 @Component({
@@ -165,7 +164,6 @@ export class InputComponent implements OnChanges,OnInit {
   explore(value: any) {
     open(value,"Explorer")
   }
-
 }
 
 

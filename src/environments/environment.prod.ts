@@ -1,6 +1,7 @@
 export const environment = {
     production: true,
     forum:"",
+    company:"",
     mail:"contact@nfluent.io",
     version: "0.1 dev",
     server:"https://api.nfluent.io:4242",

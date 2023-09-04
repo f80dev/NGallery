@@ -47,13 +47,11 @@
             {{'sur cet écran' | translate}}
         </div>
         <br>
-        <app-authent [showWalletConnect]="authent_mode.wallet_connect"
+        <app-authent
                      [directShowQRCode]="direct_showqrcode"
-                     [showWebWallet]="authent_mode.web_wallet"
-                     [showNfluentWalletConnect]="authent_mode.nfluent_wallet_connect"
+                     [connexion]="authent_mode"
                      title=""
                      (dblclick)="switch_authent_mode()"
-                     [showExtensionWallet]="authent_mode.extension_wallet"
                      [showCancel]="false"
                      [network]="network"
                      (authent)="on_authen($event)"></app-authent>
