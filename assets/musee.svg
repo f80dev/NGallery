@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="musee.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="5.3664981"
+     inkscape:cx="1082.3632"
+     inkscape:cy="836.20639"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="true"
+     inkscape:snap-grids="false"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-others="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-nodes="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     borderlayer="false"
+     showborder="true">
+    <sodipodi:guide
+       position="961.52086,546.31865"
+       orientation="1,0"
+       id="guide1787" />
+    <sodipodi:guide
+       position="720.0226,535.88354"
+       orientation="0,-1"
+       id="guide1789" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter7104"
+       x="-0.021516835"
+       y="-0.036251604"
+       width="1.0430337"
+       height="1.0725032">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.49482101"
+         id="feGaussianBlur7106" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter7108"
+       x="-0.015742457"
+       y="-0.047571377"
+       width="1.0314849"
+       height="1.0951428">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.49482101"
+         id="feGaussianBlur7110" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter7308"
+       x="-0.0027569158"
+       y="-0.020056709"
+       width="1.0055138"
+       height="1.0401134">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.53738135"
+         id="feGaussianBlur7310" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter840"
+       x="-0.00083830139"
+       y="-0.00093458154"
+       width="1.0016766"
+       height="1.0018692">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.19665153"
+         id="feGaussianBlur842" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       width="1920"
+       height="1080"
+       preserveAspectRatio="none"
+       style="stroke-width:0.446051;image-rendering:optimizeQuality"
+       xlink:href="https://gallery.nfluent.io/assets/gallery.jpg"
+       id="image950"
+       x="0"
+       y="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.3997px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;opacity:0.687697;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264584;filter:url(#filter7308)"
+       x="1224.171"
+       y="286.45383"
+       id="text2852"
+       transform="matrix(0.99831754,0,0,1.0016853,-19.37949,-23.85168)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.3997px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:end;text-anchor:end;stroke:#000000;stroke-width:0.264584"
+         x="1224.171"
+         y="286.45383"
+         id="tspan4656">NFluent Gallery</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.7654px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.729338;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.482115;filter:url(#filter7108)"
+       x="1281.6449"
+       y="698.4707"
+       id="text1793"
+       transform="matrix(0.56405153,0,0,0.53395949,520.07274,303.97384)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.482115"
+         x="1281.6449"
+         y="698.4707"
+         id="tspan1791">{{title}}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.729338;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.60176;filter:url(#filter7104)"
+       x="1280.0314"
+       y="729.28998"
+       id="text4053"
+       transform="matrix(0.49410767,0,0,0.39125351,614.85458,404.16749)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.60176"
+         x="1280.0314"
+         y="729.28998"
+         id="tspan4051">{{description}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.60176"
+         x="1280.0314"
+         y="752.7417"
+         id="tspan5683">{{collection}}</tspan></text>
+    <rect
+       style="opacity:1;fill:#ac9d93;stroke-width:16.4976"
+       id="rect889"
+       width="563.12329"
+       height="505.17111"
+       x="641.94568"
+       y="393.18002" />
+    <image
+       width="563"
+       height="505"
+       style="stroke-width:0.534209;filter:url(#filter840)"
+       preserveAspectRatio="none"
+       xlink:href="%7B%7Bvisual%7D%7D"
+       id="image32"
+       x="642"
+       y="393" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;opacity:0.729338;mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.72307;filter:url(#filter7104)"
+       x="1280.0314"
+       y="729.28998"
+       id="text2432"
+       transform="matrix(0.41124195,0,0,0.32558781,723.61337,635.09056)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.72307"
+         x="1280.0314"
+         y="729.28998"
+         id="tspan2428">{{prop1}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.72307"
+         x="1280.0314"
+         y="752.7417"
+         id="tspan2430">{{prop2}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.72307"
+         x="1280.0314"
+         y="776.19348"
+         id="tspan2564">{{prop3}}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.7614px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;stroke:#000000;stroke-width:0.72307"
+         x="1280.0314"
+         y="799.6452"
+         id="tspan2566">{{prop4}}</tspan></text>
+  </g>
+</svg>
