@@ -52,6 +52,7 @@ import {UploadFileComponent} from "./upload-file/upload-file.component";
 import {FaqLinkComponent} from "./faq-link/faq-link.component";
 import { ShareComponent } from './share/share.component';
 import {FilterPipe} from "./filter.pipe";
+import {TutoComponent} from "./tuto/tuto.component";
 
 
 const routes: Routes = [
@@ -67,35 +68,16 @@ export const GOOGLE_CLIENT_ID="167299914377-p8vuf2f6npqnigl5kpqrh34cqjd81eko.app
 const config: SocketIoConfig = { url: environment.server, options: {} };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InputComponent,
-    FaqsComponent,
-    AuthentComponent,
-    AdminComponent,
-    PromptComponent,
-    PaymentComponent,
-    SignatureComponent,
-    HourglassComponent,
-    GalleryComponent,
-    FilterPipe,
-    SplashComponent,
-    ScannerComponent,
-    AskForPaymentComponent,
-    SafePipe,
-    ShowroomComponent,
-    AboutComponent,
-    TranslatePipe,
-    GenlinkComponent,
-    UploadFileComponent,
-    FaqLinkComponent,
-    ShareComponent
-  ],
+    declarations: [
+        AppComponent,
+        AdminComponent,
+        GalleryComponent,
+    ],
   imports: [
     BrowserModule,
     MatProgressSpinnerModule,
     WebcamModule,
-      ReactiveFormsModule,
+    ReactiveFormsModule,
     ClipboardModule,
     SocialLoginModule,
     MatCardModule,
@@ -128,6 +110,16 @@ const config: SocketIoConfig = { url: environment.server, options: {} };
       registrationStrategy: 'registerWhenStable:30000'
     }),
     MatListModule,
+    GenlinkComponent,
+    FaqLinkComponent,
+    UploadFileComponent,
+    HourglassComponent,
+    AuthentComponent,
+    TranslatePipe,
+    ShowroomComponent,
+    SafePipe,
+    TutoComponent,
+    SplashComponent,
   ],
   providers: [
     DeviceService,StyleManagerService,TranslatePipe,FilterPipe,

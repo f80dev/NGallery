@@ -1,0 +1,16 @@
+textarea {
+  text-align: left;
+  margin-bottom: 5px;
+  padding:10px;
+  background-color: black;
+  color: greenyellow;
+}
+
+.expansion_panel {
+  width:95%;
+  text-align: left;
+}
+
+textarea {
+  width:80%;
+}

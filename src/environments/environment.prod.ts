@@ -8,6 +8,8 @@ export const environment = {
     appname:"NGallery",
     visual:"https://gallery.nfluent.io/assets/musee2.jpg",
     claim:"Exposez vos NFTs",
+  style:"nfluent-dark.css",
+  shorter_service:"https://t.f80.fr:99/",
     appli:"https://gallery.nfluent.io",
     wallet:"https://wallet.nfluent.io",
     website:"https://nfluent.io",

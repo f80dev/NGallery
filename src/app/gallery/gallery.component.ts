@@ -7,7 +7,7 @@ import {NetworkService} from "../network.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {DOCUMENT} from "@angular/common";
 import {wait_message} from "../hourglass/hourglass.component";
-import {Connexion} from "../../operation";
+import {Connexion, get_default_connexion} from "../../operation";
 import {NgNavigatorShareService} from "ng-navigator-share";
 import {TranslatePipe} from "../translate.pipe";
 
@@ -22,19 +22,7 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   network: string="";
   animation="svg";
   duration=3;
-  authent_mode:Connexion={
-    keystore: false,
-    address: false,
-    direct_connect: false,
-    email: false,
-    extension_wallet: false,
-    google: false,
-    nfluent_wallet_connect: false,
-    on_device: false,
-    wallet_connect: true,
-    web_wallet: false,
-    webcam: false
-  }
+  authent_mode:Connexion=get_default_connexion("wallet_connect")
   collection_id: string="";
   visual: string="";
   nft_title:string="";
@@ -62,7 +50,9 @@ export class GalleryComponent implements OnInit,AfterViewInit {
       @Inject(DOCUMENT) public document: any
   ) { }
 
-  async ngOnInit() {
+
+
+  async initform() {
     this.params=await getParams(this.routes)
     apply_params(this,this.params,environment);
 
@@ -97,13 +87,13 @@ export class GalleryComponent implements OnInit,AfterViewInit {
     this.duration=this.params.duration || 3;
 
     this.quota=Number(this.params.quota || environment.quota || "10")
-    this.authent_mode.nfluent_wallet_connect=(this.params.showNfluentWalletConnect=="true");
 
     showMessage(this,this.translate.transform("Cliquer n'importe ou pour passer en plein écran"),6000);
 
   }
 
   histo:number[]=[];
+  slide=1;
   anim(){
     let i=-1;
     let nft=null;
@@ -125,17 +115,19 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   async on_authen($event: { strong: boolean; address: string; provider: any }) {
     if($event.address.length>0){
       this.showAuthent=false;
-      showMessage(this,this.translate.transform("Récupération de vos NFTs en cours"));
+      showMessage(this,this.translate.transform("Récupération de vos NFTs en cours sur ")+this.network);
       wait_message(this,this.translate.transform("Chargement des NFTs"))
-      let r:any=await this.api.get_tokens_from("owner",$event.address,100,true,null,0,this.network)
+      let r:any=await this.api.get_tokens_from("owner",$event.address,100,false,null,0,this.network)
       wait_message(this)
       if(r.result && r.result.length>=this.quota){
         this.address=$event.address;
         this.nfts=r.result;
+        this.background=""
         this.anim();
         this.api.get_account_settings(this.address).subscribe((r)=>{this.excludes_collections=r.exclude_from_gallery || [];})
       } else {
         showMessage(this,this.translate.transform("Vous n'avez pas assez de NFT pour être exposé"));
+        this.showAuthent=true
       }
     } else {
       showMessage(this,"Votre adresse n'est pas disponible")
@@ -192,39 +184,19 @@ export class GalleryComponent implements OnInit,AfterViewInit {
   switch_authent_mode() {
     if(this.authent_mode.nfluent_wallet_connect){
       this.direct_showqrcode=true;
-      this.authent_mode={
-        keystore: false,
-        address: false,
-        direct_connect: true,
-        email: false,
-        extension_wallet: true,
-        google: false,
-        nfluent_wallet_connect: false,
-        on_device: false,
-        wallet_connect: true,
-        web_wallet: true,
-        webcam: false
-      }
+      this.authent_mode=get_default_connexion()
     } else {
       this.direct_showqrcode=false;
-      this.authent_mode={
-        address: true,
-        keystore: false,
-        direct_connect: false,
-        email: false,
-        extension_wallet: true,
-        google: false,
-        nfluent_wallet_connect: true,
-        on_device: false,
-        wallet_connect: false,
-        web_wallet: true,
-        webcam: false
-      }
+      this.authent_mode=get_default_connexion()
     }
   }
 
   async open_share() {
     this.router.navigate(["share"])
 
+  }
+
+  ngOnInit(): void {
+    setTimeout(()=>{this.initform()},200)
   }
 }

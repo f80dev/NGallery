@@ -1,32 +1,76 @@
-<div class="mainform">
-	<div class="mat-elevation-z4" style="max-width: 600px;padding:20px;display: inline-block;">
-		<div class="titleform" style="margin: 30px;">
-			Créer votre gallerie et partagez là
-			<app-faq-link faq="property"></app-faq-link>
-		</div>
 
-		<app-hourglass [message]="message"></app-hourglass>
-		<br>
-		<div>
-			<app-upload-file extensions=".svg" width="200px" height="200px"
-			                 [maxsize]="2000000"
-			                 (uploaded)="upload_svg($event)">
-				Charger un décors
-			</app-upload-file>
-			<app-faq-link faq="svg" title="En savoir plus sur le fichier de décors"></app-faq-link>
+<div class="background-form" [style.background-image]="'url('+background+')'">
+  <div class="popup-form background-component mat-elevation-z18" style="max-width:800px;width:100%;min-height: 90vh;margin:1%;padding: 2%;" >
 
-		</div>
+      <div class="titleform" style="margin: 5px;">
+        Créer votre gallerie et partagez là
+        <app-faq-link faq="property"></app-faq-link>
+      </div>
 
-		<br>
+      <app-hourglass [message]="message"></app-hourglass>
+      <br>
+      <div>
+        <app-upload-file extensions=".svg"
+                         width="200px" height="200px"
+                         [maxsize]="2000000"
+                         (uploaded)="upload_svg($event)">
+          Charger un décors
+        </app-upload-file>
+        <app-faq-link faq="svg" title="En savoir plus sur le fichier de décors"></app-faq-link>
 
-		<app-genlink domain="https://gallery.nfluent.io"
-		             [properties]="properties"></app-genlink>
+      </div>
 
-		<br>
-		<button mat-raised-button (click)="go_back()">Retour</button>
+      <br>
+
+    <div class="expansion_panel">
+      <app-genlink domain="https://gallery.nfluent.io"
+                   [expanded]="false"
+                   title="Paramètres / Apparence"
+                   [properties]="properties"></app-genlink>
+
+    </div>
+
+      <mat-expansion-panel [expanded]="false" class="expansion_panel">
+        <mat-expansion-panel-header>Affichage sur TV / projecteur</mat-expansion-panel-header>
+        <p>
+        Vous pouvez utiliser {{properties[0].value}} sur un écran via l'usage
+        d'un Raspberry PI ou équivalent en suivant la procédure suivante :
+        </p>
+
+        <ul>
+          <li>Installer le système <a href="https://www.raspberrypi.com/software/">Raspberry OS</a></li>
+          <li>Ouvrir un terminal</li>
+          <li>Modifier le fichier autostart par la commande<br><br>
+            <textarea [rows]="6" [cols]="60">
+nano /home/pi/.config/lxsession/LXDE-pi/autostart
+          </textarea>
+          </li>
+          <li>Ajouter les lignes suivantes :<br><br>
+            <textarea [rows]="6" [cols]="60">
+@xset -dpms
+@xset s noblank
+@chromium -browser --kiosk --incognito -disable-translate --app=https://xgallery.nfluent.io
+          </textarea>
+
+          </li>
+          <li>Configurer le WIFI</li>
+          <li>Rédémarer</li>
+        </ul>
+
+        <br>Pour permettre au Raspberry de se connecter sur le premier réseau disponible vous pouvez editer le fichier wpa_supplicant.conf et ajouter une section network
+        <br><br>
+        <textarea  [rows]="6" [cols]="60" >
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+network={key_mgmt=NONE}
+        </textarea>
+
+        <br>
+        <br>
+<!--        Commander directement votre kit sur <a href="https://leboncoin.fr">LeBonCoin</a>-->
+      </mat-expansion-panel>
+      <button mat-raised-button (click)="go_back()">Retour</button>
 
 
+    </div>
+  </div>
 
-
-	</div>
-</div>

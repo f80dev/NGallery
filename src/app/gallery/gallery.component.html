@@ -4,6 +4,20 @@
         [image]="visual"
         [description]="claim"></app-splash>
 
+<app-tuto title="{{appname}} est un outil de présentation des NFT sur écran partagé type cadre photo, télévision ou rétroprojecteur"
+          background="https://images.unsplash.com/photo-1579036095242-fe07594274ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1951&q=80"
+          [duration]="4" *ngIf="slide==1" (close)="slide=slide+1"></app-tuto>
+
+<app-tuto title="N'importe qui peut afficher les NFTs qu'il détient<br>en flashant simplement le QRCode affiché"
+          background="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          [duration]="4"
+          *ngIf="slide==2" (close)="slide=slide+1"></app-tuto>
+
+<app-tuto title="Les NFTs peuvent être présentés dans un 'décor'<br>préalablement paramétré par la personne ayant installée l'application"
+          background="https://images.unsplash.com/photo-1514905552197-0610a4d8fd73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          [duration]="4"
+          *ngIf="slide==3" (close)="slide=slide+1"></app-tuto>
+
 <mat-icon style="color:lightgray;display: block;position: fixed;right:5px;top:5px;opacity: 0.3;cursor: pointer;z-index: 10;"
           (click)="open_about()">
     help
@@ -14,9 +28,10 @@
     share
 </mat-icon>
 
-<div
+<div *ngIf="slide>3"
      (click)="open_full_screen()"
-     style="width:100%;min-height:100%;color:lightgrey;position: fixed;top:0;left:0;text-align: center;background-size:cover;" [style.background-image]="'url('+background+')'">
+     style="width:100%;min-height:100%;color:lightgrey;position: fixed;top:0;left:0;text-align: center;background-size:cover;background-color: black;"
+     [style.background-image]="'url('+background+')'">
 
 
     <div [innerHTML]="svg | safe"
@@ -40,35 +55,38 @@
     </div>
 
 <!--    "<a href=\"https://xportal.com/\" target=\"_blank\">xPortal</a>"-->
-    <div style="margin-top: 1vh;max-width: 350px;display: inline-block;" *ngIf="nfts.length==0 && showAuthent">
+    <div style="margin-top: 1vh;display: inline-block;" *ngIf="nfts.length==0 && showAuthent">
         <div class="mat-headline-6" *ngIf="network.indexOf('elrond')>-1">
             {{'Flasher depuis xPortal pour afficher vos NFTs' | translate}}
-            <span *ngIf="network.indexOf('devnet')>-1">(du devnet)</span>
+            <span *ngIf="network.indexOf('devnet')>-1">(du réseau de test)</span>
             {{'sur cet écran' | translate}}
         </div>
         <br>
+        <div style="width:80%;display:inline-block;max-width: 1000px;text-align: center;">
         <app-authent
-                     [directShowQRCode]="direct_showqrcode"
                      [connexion]="authent_mode"
+                     [directShowQRCode]="true"
+                     size="100%"
                      title=""
                      (dblclick)="switch_authent_mode()"
                      [showCancel]="false"
                      [network]="network"
                      (authent)="on_authen($event)"></app-authent>
+        </div>
     </div>
 
     <br>
     <div style="margin-top:7vh;display: inline-block;opacity: 1;color:lightgrey;" class="mat-headline-6" *ngIf="nfts.length==0">
-        {{"Cliquer n'importe ou pour passer en plein écran" | translate}}
+        {{"F11 ou cliquer pour passer en plein écran" | translate}}
     </div>
 
 
-    <app-authent [showWalletConnect]="true"
+  <app-authent [showWalletConnect]="true"
                  [directShowQRCode]="true"
                  size="120px"
                  [showDirectConnect]="false"
                  [intro_message]="'Exposez vos NFTs' | translate"
-                 style="font-size:small;width:120px;display: block;position: absolute;right:10px;bottom:0;z-index: 10;opacity: 0.6;"
+                 style="font-size:small;width:120px;display: block;position: absolute;right:10px;bottom:0;z-index: 10;"
                  *ngIf="nfts.length>0 && canChange"
                  [network]="network"
                  [showCancel]="false"

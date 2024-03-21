@@ -1,11 +1,19 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Merchant} from "../payment/payment.component";
+import {
+    MAT_DIALOG_DATA,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogRef, MatDialogTitle
+} from "@angular/material/dialog";
+import {Merchant, PaymentComponent} from "../payment/payment.component";
 import {$$, Bank, showMessage} from "../../tools";
 import {UserService} from "../user.service";
 import {NetworkService} from "../network.service";
 import {Connexion} from "../../operation";
-
+import {AuthentComponent} from "../authent/authent.component";
+import {NgFor, NgIf} from "@angular/common";
+import {MatButton} from "@angular/material/button";
 
 export function _ask_for_paiement(vm:any,
                                   token_id:string,
@@ -56,6 +64,12 @@ export function _ask_for_paiement(vm:any,
 
 @Component({
     selector: 'app-ask-for-payment',
+    standalone:true,
+    imports: [
+        AuthentComponent,
+        PaymentComponent,
+        MatDialogClose, NgIf, NgFor, MatDialogContent, MatDialogActions, MatButton, MatDialogTitle,
+    ],
     templateUrl: './ask-for-payment.component.html',
     styleUrls: ['./ask-for-payment.component.css']
 })
@@ -64,18 +78,21 @@ export class AskForPaymentComponent implements OnInit {
     buy_method: "fiat" | "crypto" | "" = "";
     nb_payment=0;
     connexion: Connexion = {
+        xAlias: false,
+        private_key: false,
         address: false,
         direct_connect: true,
         email: false,
         extension_wallet: true,
         google: false,
-        keystore: true,
+        keystore: false,
         nfluent_wallet_connect: false,
         on_device: false,
         wallet_connect: true,
         web_wallet: true,
         webcam: false
     };
+
 
     constructor(public dialogRef: MatDialogRef<AskForPaymentComponent>,
                 public user:UserService,
@@ -136,6 +153,7 @@ export class AskForPaymentComponent implements OnInit {
     init_provider($event:any) {
         this.data.provider=$event.provider;
         this.data.addr=$event.address
+        this.data.url_direct_xportal_connect=$event.url_direct_xportal_connect
         if(this.data.merchant.wallet){
             this.user.init($event.address,this.data.merchant.wallet.network,false,true,this.user.profil.email)
         }

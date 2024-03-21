@@ -38,12 +38,12 @@
               {
                 "input": "src/nfluent.scss",
                 "inject": false,
-                "bundleName": "nfluent-theme"
+                "bundleName": "nfluent"
               },
               {
                 "input": "src/nfluent-dark.scss",
                 "inject": false,
-                "bundleName": "nfluent-dark-theme"
+                "bundleName": "nfluent-dark"
               }
             ],
             "scripts": [],

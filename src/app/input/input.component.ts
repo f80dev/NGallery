@@ -1,9 +1,39 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
+import {MatOption, MatSelect} from "@angular/material/select";
+import {MatSlider, MatSliderThumb} from "@angular/material/slider";
+import {MatListOption, MatSelectionList} from "@angular/material/list";
+import {MatCheckbox} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
+import {MatButton} from "@angular/material/button";
 //version 1.0 3/3/23
 
 @Component({
   selector: 'app-input',
+  standalone:true,
+  imports: [
+    MatFormField,
+    MatHint,
+    NgIf,
+    MatLabel,
+    NgClass,
+    MatIcon,
+    MatSelect,
+    MatInputModule,
+    MatOption,
+    MatSlider,
+    FormsModule,
+    MatListOption,
+    MatSelectionList,
+    MatCheckbox,
+    ReactiveFormsModule,
+    MatButton,
+    NgForOf,
+    MatSliderThumb
+  ],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
@@ -20,6 +50,7 @@ export class InputComponent implements OnChanges,OnInit {
   @Input() maxwidth:string="100%";
   @Input() color_value="darkgray";
   @Input() size_image="40px";
+  @Input() icon_action="";
   @Input() filter="";
 
 
@@ -33,8 +64,9 @@ export class InputComponent implements OnChanges,OnInit {
   valueCtrl=new FormControl()
 
   @Output() valueChange=new EventEmitter<any>();
-
+  @Output() preview=new EventEmitter<any>();
   @Output() validate=new EventEmitter();
+  @Output() action=new EventEmitter();
   @Output() cancel=new EventEmitter();
 
   @Input() value_type:"text" | "number" | "memo" | "list" | "listimages" | "boolean" | "images" | "slide" | "slider" = "text";
@@ -44,7 +76,7 @@ export class InputComponent implements OnChanges,OnInit {
   showHelp: boolean=false;
   @Input() cols: number=0;
   @Input() rows: number=0;
-
+  @Input() force_preview: boolean=false;
   @Input() max: number=1e18;
   @Input() min: number=0;
   @Input() step: number=1;
@@ -69,7 +101,7 @@ export class InputComponent implements OnChanges,OnInit {
     this.valueChange.emit(this.value);
   }
 
-  on_key($event: KeyboardEvent) {
+  on_key($event: any) {
     if($event.key=='Enter')
       this.on_validate();
     else
@@ -115,24 +147,29 @@ export class InputComponent implements OnChanges,OnInit {
         }
       }
 
-      if (typeof (changes["options"]) == "string") { // @ts-ignore
-        changes["options"] = changes["options"].split(",")
-      }
-      if (changes["options"] && changes["options"].previousValue != changes["options"].currentValue) {
-        this.options = [];
-        for (let option of changes["options"].currentValue) {
-          if (typeof(option) == "string") option = {label: option, value: option};
-          if (typeof(option) == "object") {
-            option.label = option["label"] || option["name"] || option["caption"] || option["title"];
-            // if (this.value_field.length > 0){
-            //   option.value=option[this.value_field]
-            // }else{
-            //   option.value= JSON.parse(JSON.stringify(option))
-            // }
+      if(changes["options"]){
+        if (typeof (changes["options"].currentValue) == "string") { // @ts-ignore
+          changes["options"].currentValue = changes["options"].currentValue.split(",")
+        }
+        if (changes["options"] && changes["options"].previousValue != changes["options"].currentValue) {
+          this.options = [];
+          for (let option of changes["options"].currentValue) {
+            if (typeof(option) != "object") option = {label: option, value: option};
+            if (typeof(option) == "object") {
+              option.label = option["label"] || option["name"] || option["caption"] || option["title"];
+              // if (this.value_field.length > 0){
+              //   option.value=option[this.value_field]
+              // }else{
+              //   option.value= JSON.parse(JSON.stringify(option))
+              // }
+            }
+            //TODO: a analyser
+            //thif(this.label.indexOf(option)>-1)
+            this.options.push(option);
           }
-          this.options.push(option);
         }
       }
+
     }
   }
 
@@ -162,7 +199,14 @@ export class InputComponent implements OnChanges,OnInit {
   }
 
   explore(value: any) {
-    open(value,"Explorer")
+    if(this.force_preview)this.preview.emit(value)
+    if(value.startsWith("http")){
+      open(value,"Explorer")
+    }
+  }
+
+  call_action(value: any) {
+    this.action.emit(value);
   }
 }
 

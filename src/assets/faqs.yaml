@@ -17,8 +17,11 @@ content:
     order: 0
     format: html
     content: "
+      {{appname}} permet de créer sa propre gallerie pour la partager avec d'autres, pour cela il
+      est nécéssaire de définir certains attributs, dont la signification est la suivante :<br>
       <ul>
         <li>Réseau : désigne la blockchain d'ou seront extrait les NFTs</li>
+        <li>Décors : le décours est l'image au format SVG contenant l'image principale de présentation et les objets à incruster</li>
         <li>Fond d'écran : est l'image affichée en fond d'écran dans l'attente d'une première connexion</li>
         <li>Splash screen: est l'image chargée au chargement de l'application</li>
         <li>Prise de contrôle: s'il vaut true, n'importe qui peut afficher ses NFTs après avoir flashé le QRCode. Si false seul le premier à flasher peut afficher ses NFTs</li>
@@ -36,7 +39,7 @@ content:
         Un décors est une image au format vectoriel (SVG) permetant d'inscruster les informations du NFT comme son visuel ou ses propriétés.<br>
         On peut trouver un exemple <a href='./assets/xmusee.svg' target='blank_'>ici</a>
         </p>
-        
+
         le principe consiste à remplacer certains contenus du fichier SVG au moment de l'affichage d'un NFT. Ainsi<br>
         <ul>
         <li>{{titre}} est remplacé par le titre du NFT</li>
@@ -45,6 +48,9 @@ content:
         <li>{{prop1}} {{prop2}} etc... par les propriétés du NFT (s'il n'a qu'une propriété, {{prop2}} est effacé</li>
         <li>le visuel du NFT prend place dans une image incorporée à la place de l'URL sous la forme {{visual}}</li>
         </ul>
+
+        Pour construire son propre décors, il peut être utile d'utiliser des applications de dessins vectoriel comprennant le format SVG<br>
+        <a href='https://inkscape.org/' target='_blank'>InkScape</a> fait partie de ses applications et est totalement gratuite.
     "
 
 

@@ -27,14 +27,11 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    getParams(this.routes).then((params:any)=>{
-      if(params.hasOwnProperty("server"))this.network.server_nfluent=params.server;
-      if(params.go){
-        this.router.navigate([params.go]);
-      }
-      window.screen.orientation.lock("landscape")
-    })
+      try{
+        //window.screen.orientation.lock("landscape")
+      } catch (e) {
 
+      }
 
   }
 }
