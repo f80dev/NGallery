@@ -1,0 +1,149 @@
+{
+  "configVersion": 1,
+  "timestamp": 1712215867503,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.js",
+        "/manifest.webmanifest",
+        "/nfluent-dark.css",
+        "/nfluent.css",
+        "/polyfills.js",
+        "/runtime.js",
+        "/styles.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/HelveticaInseratLT.ttf",
+        "/assets/canvas.svg",
+        "/assets/dinovox.webp",
+        "/assets/faqs.yaml",
+        "/assets/gallery.jpg",
+        "/assets/grafitis.svg",
+        "/assets/grmmvx.svg",
+        "/assets/grmmvx_logo.jpg",
+        "/assets/icon_dinovox.webp",
+        "/assets/icons/Secret.webp",
+        "/assets/icons/egld-token-logo.webp",
+        "/assets/icons/icon_nfluent_32.png",
+        "/assets/icons/matic-token-icon.webp",
+        "/assets/icons/ngallery-128.png",
+        "/assets/icons/ngallery-256.png",
+        "/assets/icons/ngallery-512.png",
+        "/assets/icons/ngallery-64.png",
+        "/assets/logo.png",
+        "/assets/logo_grm.jpg",
+        "/assets/musee.jpg",
+        "/assets/musee.svg",
+        "/assets/musee2.jpg",
+        "/assets/palette.webp",
+        "/assets/private_club.jpg",
+        "/assets/redwall1.jpg",
+        "/assets/redwall2.jpg",
+        "/assets/wall1.jpg",
+        "/assets/webFonts/GilroyRegular/font.woff",
+        "/assets/webFonts/GilroyRegular/font.woff2",
+        "/assets/webFonts/HelveticaInseratLT.ttf",
+        "/assets/webFonts/MyFontsWebfontsKit.css",
+        "/assets/webFonts/Swiss721BlackCondensedBT.ttf",
+        "/assets/webFonts/mediasans.css",
+        "/assets/webFonts/mediasansweb-bold.woff",
+        "/assets/webFonts/mediasansweb-bold.woff2",
+        "/assets/webFonts/mediasansweb-regular.woff",
+        "/assets/webFonts/mediasansweb-regular.woff2",
+        "/assets/wood.jpg",
+        "/assets/wood1.webp",
+        "/assets/xmusee.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/HelveticaInseratLT.ttf": "72bdaf283827e7e2c2dfde8c2635fdc1c4500bc3",
+    "/assets/canvas.svg": "80eecdcd6932941dd20fa469c05f378dc53b1429",
+    "/assets/dinovox.webp": "fedeab510c616972f60782913949b052bf2dcc75",
+    "/assets/faqs.yaml": "9464dfb61f268b0f369f595f5255800fbcbdbdf3",
+    "/assets/gallery.jpg": "0b017aefbb3b20d5e40a1efa927a3df4a877daf6",
+    "/assets/grafitis.svg": "8edf563191cad384da1ccaafa7cb3f14f5538283",
+    "/assets/grmmvx.svg": "6bcd74b977d33000f307f9b71ff272db967a79a7",
+    "/assets/grmmvx_logo.jpg": "de32c1d403c7b94af0233b9471c5f5f8dbec4e34",
+    "/assets/icon_dinovox.webp": "af7b7dec859e491cdae6206482997176d3fa3b59",
+    "/assets/icons/Secret.webp": "5540f86b5e7b8e244527b7f286ca61e37f7441cb",
+    "/assets/icons/egld-token-logo.webp": "dd67d0b53452bf44c29468c56178725fffc1a36e",
+    "/assets/icons/icon_nfluent_32.png": "30b3ef0756f5449a35e53839cdc2f258d54482ba",
+    "/assets/icons/matic-token-icon.webp": "fc3f0cdb05d3a6f2d6e1813e18bb3ee81e1683f5",
+    "/assets/icons/ngallery-128.png": "aca824a11d6a5f552e3f30223403fae3a966dbe5",
+    "/assets/icons/ngallery-256.png": "41bb603f9720c19899888b47f62e219c5026e7ef",
+    "/assets/icons/ngallery-512.png": "794b5cb1d9e779c507a4d04ee560148bb3720afd",
+    "/assets/icons/ngallery-64.png": "9a7a997e9ec7eab03fa85b5705678ea74220076c",
+    "/assets/logo.png": "794b5cb1d9e779c507a4d04ee560148bb3720afd",
+    "/assets/logo_grm.jpg": "fd40ffad76e85131edccb4caa60cdaaddd6bbec4",
+    "/assets/musee.jpg": "630b949f2f3335c81754e668b60c1229079c4778",
+    "/assets/musee.svg": "870984ca8c5337ec6284d4b1e00586b4834cb40c",
+    "/assets/musee2.jpg": "a2c64c811e0ec58f15a0833928a35e0c310e44a0",
+    "/assets/palette.webp": "9577fa5aedf20e41c70dbe8f5dedf73270d91667",
+    "/assets/private_club.jpg": "afc39347470f66cdad7a240787d62dc09e00c2e6",
+    "/assets/redwall1.jpg": "1261f3c26bf36661b9bd0cdadfc93ca80059acf3",
+    "/assets/redwall2.jpg": "0577b616bfdaf4cf005e61abb8432ec93170cf0c",
+    "/assets/wall1.jpg": "b5371c40db3b6486d904c4097b7a0146dbfe9d58",
+    "/assets/webFonts/GilroyRegular/font.woff": "3af221642b4c256268420f0e82583519c21ef868",
+    "/assets/webFonts/GilroyRegular/font.woff2": "b37bd3ed335f0bf8ff29e4176b920a4be1f837b3",
+    "/assets/webFonts/HelveticaInseratLT.ttf": "72bdaf283827e7e2c2dfde8c2635fdc1c4500bc3",
+    "/assets/webFonts/MyFontsWebfontsKit.css": "857bb12ffc5177ebd6284903da805b15d3719c08",
+    "/assets/webFonts/Swiss721BlackCondensedBT.ttf": "2fab61e49e3db6ae73cb7312b6a7b13b8b4dcf59",
+    "/assets/webFonts/mediasans.css": "33546a33fffa6e4a6edc44dccdf29fb0d5e68b06",
+    "/assets/webFonts/mediasansweb-bold.woff": "30897bff3f932629e64a87ae691a2ebe397c92cd",
+    "/assets/webFonts/mediasansweb-bold.woff2": "2b4a1d98540df56d84c02084208fd26068f90de9",
+    "/assets/webFonts/mediasansweb-regular.woff": "c3ed8508e8a3ac5a4bce2c622920964674b9fc7e",
+    "/assets/webFonts/mediasansweb-regular.woff2": "7e99ced9bda11c1e8765ec5907b210c14a84bc06",
+    "/assets/wood.jpg": "35eac92cd829d3d753aff82f55da314ed8b92a34",
+    "/assets/wood1.webp": "c796636731e07ae436908da35bb4d9a32d2e6d96",
+    "/assets/xmusee.svg": "9c3e68c349c47aae43ef26fdd4ce388a99511ba6",
+    "/favicon.ico": "9a7a997e9ec7eab03fa85b5705678ea74220076c",
+    "/index.html": "42186d2d09d120c808745bc10f32f70d39ef5365",
+    "/main.js": "5ac1e6c2e02717d09cd45c108ca4242a115c659b",
+    "/manifest.webmanifest": "b7592d656cbe32169b2dc411d3c3a87ad5265e70",
+    "/nfluent-dark.css": "363c449d66922df4360fc877af8d8a6629ad84dd",
+    "/nfluent.css": "7b000c4dd1b0f6d170ffc511180edaa565385fec",
+    "/polyfills.js": "61981ada386d618fe85d2b343b4900e031fec5bc",
+    "/runtime.js": "bb7c17b11935cc5439c7befe688936c9b8773e6a",
+    "/styles.css": "e2730fddcf2ef7b27fe2a541add1067d48e91021"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
